@@ -1,0 +1,13 @@
+{
+	"servers": {
+		// "my-mcp-server-add": {
+		// 	"url": "http://localhost:8000/mcp",
+		// 	"type": "http"
+		// },
+		"go-mcp-server": {
+			"url": "https://gomcpserver.fastmcp.app/mcp",
+			"type": "http"
+		}
+	},
+	"inputs": []
+}

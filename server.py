@@ -18,7 +18,7 @@ def search_web(query: str, max_results: int = 5) -> str:
     """
     try:
         with DDGS() as ddgs:
-            results = list(ddgs.text(query, max_results=max_results))
+            results = list(ddgs.news(query, max_results=max_results))
             if not results:
                 return "검색 결과가 없습니다."
             
@@ -26,7 +26,8 @@ def search_web(query: str, max_results: int = 5) -> str:
             for idx, r in enumerate(results, 1):
                 formatted_results.append(
                     f"[{idx}] {r.get('title')}\n"
-                    f"URL: {r.get('href')}\n"
+                    f"URL: {r.get('url')}\n"
+                    f"Date: {r.get('date')}\n"
                     f"요약: {r.get('body')}\n"
                 )
             return "\n---\n".join(formatted_results)
@@ -36,7 +37,8 @@ def search_web(query: str, max_results: int = 5) -> str:
 
 if __name__ == "__main__":
     # fastmcp 실행
-    mcp.run(transport="http", host="0.0.0.0", port=8000)
+    #mcp.run(transport="http", host="0.0.0.0", port=8000)
+    mcp.run()
 
 
 # cd D:\My-Dev\AI\MCP
